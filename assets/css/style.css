@@ -1,0 +1,21 @@
+body {
+    background: url(../images/got-background.jpg);
+}
+
+.image_thumbnail {
+    border: none;
+}
+
+.center-container {
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.msg-container {
+    background: #DDD;
+    color: red;
+    border: dotted 3px;
+    padding: 15px;
+    margin: 15px auto;
+}

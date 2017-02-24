@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html en="lang">
+
 <head>
     <meta charset="UTF-8">
     <title>Game Of Thrones Game</title>
@@ -7,19 +8,114 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/paper-bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!-- THIS BOILERPLATE HAS BOOTSTRAP, BOOTRSTRAP THEME (FROM BOOTSWATCH.COM), JQUERY & JQUERY UI IMPORTED. -->
+    <div class="container">
+        <h1>GOT</h1>
+        <div class="container choose_player_container">
+            <div class="row match_playground text-center">
+                <!-- image player -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 player-container">
+                    <div class="thumbnail image_thumbnail">
+                        <h4>Player</h4>
+                        <img class="img-responsive" src="assets/images/blank.jpg" alt="">
+                        <div class="caption">
+                            <h3><span id="playerId"></span></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Attack button -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 center-container">
+                    <div class="row centerButton-container">
+                        <h3>
+                            <a href="#" class="btn btn-default">
+                                <span id="centerButton">ATTACK</span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="row msg-container">
+                        <h5><span id="msgId">Select your player!</span></h5>
+                    </div>
+                    <div class="row reset-container">
+                        <h3>
+                            <a href="#" class="btn btn-default">
+                                <span id="centerButton">RESET</span>
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+                <!-- opponent player -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 opponent-container">
+                    <div class="thumbnail image_thumbnail">
+                        <h4>Opponent</h4>
+                        <img class="img-responsive" src="assets/images/blank.jpg" alt="">
+                        <div class="caption">
+                            <h3><span id="opponentId"></span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <!-- Character 1 -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 character-container" id="jonContainer">
+                    <div class="thumbnail image_thumbnail">
+                        <div class="caption">
+                            <h4 id="jonName">Jon Snow</h4>
+                        </div>
+                        <img class="img-responsive" src="assets/images/jon-snow-main.jpg" alt="Jon Snow">
+                        <div class="caption">
+                            <h4 id="jonScore">140</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Character 2 -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 character-container" id="khaleesiContainer">
+                    <div class="thumbnail image_thumbnail">
+                        <div class="caption">
+                            <h4 id="khaleesiName">Khaleesi</h4>
+                        </div>
+                        <img class="img-responsive" src="assets/images/khaleesi-main.jpg" alt="Khaleesi">
+                        <div class="caption">
+                            <h4 id="khaleesiScore">150</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Character 3 -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 character-container" id="jamieContainer">
+                    <div class="thumbnail image_thumbnail">
+                        <div class="caption">
+                            <h4 id="jamieName">Jamie</h4>
+                        </div>
+                        <img class="img-responsive" src="assets/images/jamie-main.jpg" alt="Jamie">
+                        <div class="caption">
+                            <h4 id="jamieScore">120</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Character 4 -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 character-container" id="whiteContainer">
+                    <div class="thumbnail image_thumbnail">
+                        <div class="caption">
+                            <h4 id="whiteName">White Walker</h4>
+                        </div>
+                        <img class="img-responsive" src="assets/images/white-walker-main.jpg" alt="White Walker">
+                        <div class="caption">
+                            <h4 id="whiteScore">160</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Import custom jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Import jquery ui (optional) -->
     <!-- <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script> -->
     <!-- Import custom js -->
     <script src="assets/javascript/script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <!-- YOUR BODY GOES HERE -->
-    <!-- THIS BOILERPLATE HAS BOOTSTRAP, BOOTRSTRAP THEME (FROM BOOTSWATCH.COM), JQUERY & JQUERY UI IMPORTED. -->
-    <div class="container">
-        <h1>GOT</h1>    
-    </div>
 </body>
+
 </html>
