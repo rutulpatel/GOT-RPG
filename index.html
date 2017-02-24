@@ -13,21 +13,21 @@
 
 <body>
     <!-- THIS BOILERPLATE HAS BOOTSTRAP, BOOTRSTRAP THEME (FROM BOOTSWATCH.COM), JQUERY & JQUERY UI IMPORTED. -->
-    <div class="container">
+    <div class="container text-center">
         <h1>GAME OF THRONES</h1>
         <div class="container choose_player_container">
             <div class="row match_playground text-center">
                 <!-- player section -->
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <h4>Player</h4>
-                    <div class="thumbnail image_thumbnail">
-                        <div class="player-container">
+                    <div class="player-container" id="playerContainer">
+                        <div class="thumbnail image_thumbnail">
                             <div class="caption">
-                                <h4 class="name" id="playerName"></h4>
+                                <h4 class="name" id="playerName">FOO</h4>
                             </div>
                             <img class="img-responsive" src="assets/images/blank.jpg" alt="">
                             <div class="caption">
-                                <h4><span id="playerId"></span></h4>
+                                <h4><span class="score " id="playerScore">1000</span></h4>
                             </div>
                         </div>
                     </div>
@@ -37,17 +37,18 @@
                     <div class="row centerButton-container">
                         <h3>
                             <a href="#" class="btn btn-default">
-                                <span id="centerButton">ATTACK</span>
+                                <span id="attackButton">ATTACK</span>
                             </a>
                         </h3>
                     </div>
                     <div class="row msg-container">
                         <h5><span id="msgId">Select your player!</span></h5>
                     </div>
+                    <!-- Reset button -->
                     <div class="row reset-container">
                         <h3>
                             <a href="#" class="btn btn-default">
-                                <span id="centerButton">RESET</span>
+                                <span id="resetButton">RESET</span>
                             </a>
                         </h3>
                     </div>
@@ -55,14 +56,14 @@
                 <!-- opponent section -->
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <h4>Opponent</h4>
-                    <div class="thumbnail image_thumbnail">
-                        <div class="opponent-container" id="opponentContainer">
+                    <div class="opponent-container" id="opponentContainer">
+                        <div class="thumbnail image_thumbnail">
                             <div class="caption">
                                 <h4 class="name" id="opponentName"></h4>
                             </div>
-                            <img class="img-responsive" src="assets/images/blank.jpg" alt="">
+                            <img class="img-responsive" src="" alt="">
                             <div class="caption">
-                                <h4><span id="opponentId"></span></h4>
+                                <h4><span class="score " id="opponentScore"></span></h4>
                             </div>
                         </div>
                     </div>
@@ -71,58 +72,57 @@
             <div class="row text-center">
                 <!-- Character 1 -->
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class=" thumbnail image_thumbnail ">
-                        <div class="character-container " id="jonContainer ">
+                    <div class="character-container " id="jonContainer">
+                        <div class=" thumbnail image_thumbnail ">
                             <div class="caption ">
-                                <h4 class="name " id="jonName ">Jon Snow</h4>
+                                <h4 class="name "></h4>
                             </div>
-                            <img class="img-responsive " src="assets/images/jon-snow-main.jpg " alt="Jon Snow ">
+                            <img class="img-responsive " src="" alt="">
                             <div class="caption ">
-                                <h4 class="score " id="jonScore ">140</h4>
+                                <h4 class="score "></h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Character 2 -->
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class="thumbnail image_thumbnail ">
-                        <div class="character-container " id="khaleesiContainer ">
+                    <div class="character-container " id="khaleesiContainer">
+                        <div class="thumbnail image_thumbnail ">
                             <div class="caption ">
-                                <h4 class="name " id="khaleesiName ">Khaleesi</h4>
+                                <h4 class="name "></h4>
                             </div>
-                            <img class="img-responsive " src="assets/images/khaleesi-main.jpg " alt="Khaleesi ">
+                            <img class="img-responsive " src="" alt="">
                             <div class="caption ">
-                                <h4 class="score " id="khaleesiScore ">150</h4>
+                                <h4 class="score "></h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Character 3 -->
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class="thumbnail image_thumbnail ">
-                        <div class="character-container " id="jamieContainer ">
-
+                    <div class="character-container " id="jamieContainer">
+                        <div class="thumbnail image_thumbnail ">
                             <div class="caption ">
-                                <h4 class="name " id="jamieName ">Jamie</h4>
+                                <h4 class="name "></h4>
                             </div>
-                            <img class="img-responsive " src="assets/images/jamie-main.jpg " alt="Jamie ">
-                            <div class="caption ">
-                                <h4 class="score " id="jamieScore ">120</h4>
+                            <img class="img-responsive " src="" alt="">
+                            <div class="caption">
+                                <h4 class="score"></h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Character 4 -->
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                    <div class="thumbnail image_thumbnail ">
-                        <div class="character-container " id="whiteContainer ">
+                    <div class="character-container " id="whiteContainer">
+                        <div class="thumbnail image_thumbnail ">
 
                             <div class="caption ">
-                                <h4 class="name " id="whiteName ">White Walker</h4>
+                                <h4 class="name "></h4>
                             </div>
-                            <img class="img-responsive " src="assets/images/white-walker-main.jpg " alt="White Walker ">
+                            <img class="img-responsive " src="" alt="">
                             <div class="caption ">
-                                <h4 class="score " id="whiteScore ">160</h4>
+                                <h4 class="score "></h4>
                             </div>
                         </div>
                     </div>
