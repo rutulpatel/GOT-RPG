@@ -18,31 +18,41 @@ $(document).ready(function() {
     var attackButtonID = "#attackButton";
     var placeHolerObj = {
         name: "",
-        score: "",
+        score: "", //health points
+        attackPower: 0,
+        counterAttackPower: 0,
         imgUrl: "assets/images/blank.jpg",
         index: 0
     }
     var jonObj = {
         name: "Jon Snow",
         score: "140",
+        attackPower: 6,
+        counterAttackPower: 8,
         imgUrl: "assets/images/jon-snow.jpg",
         index: 1
     };
     var khaleesiObj = {
         name: "Khaleesi",
         score: "150",
+        attackPower: 6,
+        counterAttackPower: 10,
         imgUrl: "assets/images/khaleesi.jpg",
         index: 2
     };
     var jamieObj = {
         name: "Jamie",
         score: "120",
+        attackPower: 4,
+        counterAttackPower: 12,
         imgUrl: "assets/images/jamie.jpg",
         index: 3
     };
     var whiteObj = {
         name: "White Walker",
         score: "160",
+        attackPower: 5,
+        counterAttackPower: 15,
         imgUrl: "assets/images/white-walker.jpg",
         index: 4
     };
@@ -76,6 +86,12 @@ $(document).ready(function() {
         loadContainer(jamieContainerID, jamieObj);
         loadContainer(whiteContainerID, whiteObj);
         $(".reset-container").hide();
+        $("#attackMsg1").text("");
+        $("#attackMsg2").text("");
+    }
+
+    function rand(player, opponent) {
+
     }
 
     /** when reset button is pressed 
@@ -96,7 +112,6 @@ $(document).ready(function() {
         console.log($.isEmptyObject(playerObj));
 
         if (isPlayerObjEmpty) {
-            //playerObj = characterObjArray[selectionIndex];
             playerObj = jQuery.extend({}, characterObjArray[selectionIndex]);
             loadContainer(playerContainerClass, playerObj);
             for (var i = 1; i < characterObjArray.length; i++) {
@@ -108,11 +123,10 @@ $(document).ready(function() {
             $(this).hide();
             console.log(opponentObjIndexArray);
         } else if ((!isPlayerObjEmpty && isOpponentObjEmpty)) {
-            //opponentObj = characterObjArray[selectionIndex];
             opponentObj = jQuery.extend({}, characterObjArray[selectionIndex]);
             loadContainer(opponentContainerClass, opponentObj);
             $(this).hide();
-            $(msgID).text("FIGHT... (by clicking attack button)");
+            $(msgID).text("FIGHT...");
         } else if ((!isPlayerObjEmpty && !isOpponentObjEmpty)) {
             $(msgID).text("You first have to defeat your selected opponent completely");
         }
@@ -126,26 +140,43 @@ $(document).ready(function() {
     $(attackButtonID).on("click", function() {
         console.log("clicked");
         if (!$.isEmptyObject(opponentObj)) {
-            console.log(opponentObj);
-            opponentObj.score = 0;
-            console.log(jamieObj);
+            opponentObj.score -= playerObj.attackPower;
+            playerObj.score -= opponentObj.counterAttackPower;
+            $("#attackMsg1").text(playerObj.name + " attacked " + opponentObj.name + " for " + playerObj.attackPower + " damage");
+            $("#attackMsg2").text(opponentObj.name + " attacked back for " + opponentObj.counterAttackPower + " damage");
+            $(playerContainerClass).find(scoreClass).text(playerObj.score);
             $(opponentContainerClass).find(scoreClass).text(opponentObj.score);
+            playerObj.attackPower += characterObjArray[playerObj.index].attackPower;
+
         }
 
-        if (opponentObj.score === 0) {
-            $(msgID).text("You destroyed your opponent!!!, select your next opponent");
 
-            if (opponentObjIndexArray.length <= 1) {
-                $(msgID).text("Congrats!!! you won :)");
-                $(".reset-container").show();
-                opponentObjIndexArray.splice((opponentObjIndexArray.indexOf(opponentObj.index)), 1);
+        if (opponentObj.score <= 0 || playerObj.score <= 0) {
+
+            if (opponentObj.score <= 0) {
+                $(msgID).text("You defeated " + opponentObj.name + " !!!, select your next opponent");
+                if (opponentObjIndexArray.length <= 1) {
+                    $(msgID).text("Congrats!!! you won :)");
+                    $(".reset-container").show();
+                    $("#attackMsg1").text("");
+                    $("#attackMsg2").text("");
+                    opponentObjIndexArray.splice((opponentObjIndexArray.indexOf(opponentObj.index)), 1);
+                } else {
+                    //console.log(opponentObj);
+                    opponentObjIndexArray.splice((opponentObjIndexArray.indexOf(opponentObj.index)), 1);
+                }
+                opponentObj = {};
+                $(opponentContainerClass).css("background : red;");
+                //loadContainer(opponentContainerClass, placeHolerObj);
             } else {
-                console.log(opponentObj);
-                opponentObjIndexArray.splice((opponentObjIndexArray.indexOf(opponentObj.index)), 1);
+                $(msgID).text("You are dead, Game over!!! Press replay button to play another...");
+                $(".reset-container").show();
+                $("#attackMsg1").text("");
+                $("#attackMsg2").text("");
+                playerObj = {};
+                opponentObj = {};
             }
 
-            opponentObj = {};
-            loadContainer(opponentContainerClass, placeHolerObj);
 
         }
 

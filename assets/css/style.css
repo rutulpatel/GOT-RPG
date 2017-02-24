@@ -25,3 +25,7 @@ body {
     padding: 15px;
     margin: 15px auto;
 }
+
+.playerContainer .thumbnail {
+    background: green;
+}
