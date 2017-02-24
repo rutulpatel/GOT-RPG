@@ -96,7 +96,8 @@ $(document).ready(function() {
         console.log($.isEmptyObject(playerObj));
 
         if (isPlayerObjEmpty) {
-            playerObj = characterObjArray[selectionIndex];
+            //playerObj = characterObjArray[selectionIndex];
+            playerObj = jQuery.extend({}, characterObjArray[selectionIndex]);
             loadContainer(playerContainerClass, playerObj);
             for (var i = 1; i < characterObjArray.length; i++) {
                 if (i !== parseInt(selectionIndex)) {
@@ -107,7 +108,8 @@ $(document).ready(function() {
             $(this).hide();
             console.log(opponentObjIndexArray);
         } else if ((!isPlayerObjEmpty && isOpponentObjEmpty)) {
-            opponentObj = characterObjArray[selectionIndex];
+            //opponentObj = characterObjArray[selectionIndex];
+            opponentObj = jQuery.extend({}, characterObjArray[selectionIndex]);
             loadContainer(opponentContainerClass, opponentObj);
             $(this).hide();
             $(msgID).text("FIGHT... (by clicking attack button)");
