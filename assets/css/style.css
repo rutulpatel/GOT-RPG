@@ -2,8 +2,10 @@ body {
     background: url(../images/got-background.jpg);
 }
 
-.image_thumbnail {
+.image_thumbnail .img-responsive {
     border: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .center-container {
@@ -13,7 +15,7 @@ body {
 }
 
 .msg-container {
-    background: #DDD;
+    background: #EEE;
     color: red;
     border: dotted 3px;
     padding: 15px;
