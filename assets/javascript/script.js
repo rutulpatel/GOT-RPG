@@ -67,12 +67,15 @@ $(document).ready(function() {
      * resets the content to start a new game
      */
     function reset() {
+        playerObj = {};
+        opponentObj = {};
         loadContainer(playerContainerClass, placeHolerObj);
         loadContainer(opponentContainerClass, placeHolerObj);
         loadContainer(jonContainerID, jonObj);
         loadContainer(khaleesiContainerID, khaleesiObj);
         loadContainer(jamieContainerID, jamieObj);
         loadContainer(whiteContainerID, whiteObj);
+        $(".reset-container").hide();
     }
 
     /** when reset button is pressed 
@@ -81,7 +84,6 @@ $(document).ready(function() {
      * */
     $(resetButtonID).on("click", function() {
         reset();
-        $(".reset-container").hide();
         $(characterContainerClass).show();
     });
 
@@ -120,9 +122,11 @@ $(document).ready(function() {
      * Attack the opponent when this button is clicked
      */
     $(attackButtonID).on("click", function() {
+        console.log("clicked");
         if (!$.isEmptyObject(opponentObj)) {
             console.log(opponentObj);
             opponentObj.score = 0;
+            console.log(jamieObj);
             $(opponentContainerClass).find(scoreClass).text(opponentObj.score);
         }
 
@@ -131,6 +135,8 @@ $(document).ready(function() {
 
             if (opponentObjIndexArray.length <= 1) {
                 $(msgID).text("Congrats!!! you won :)");
+                $(".reset-container").show();
+                opponentObjIndexArray.splice((opponentObjIndexArray.indexOf(opponentObj.index)), 1);
             } else {
                 console.log(opponentObj);
                 opponentObjIndexArray.splice((opponentObjIndexArray.indexOf(opponentObj.index)), 1);

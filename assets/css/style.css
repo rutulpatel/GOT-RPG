@@ -1,5 +1,9 @@
 body {
-    background: url(../images/got-background.jpg);
+    background: url(../images/got-background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .image_thumbnail .img-responsive {
