@@ -26,7 +26,7 @@ $(document).ready(function() {
     }
     var jonObj = {
         name: "Jon Snow",
-        score: "140",
+        score: "130",
         attackPower: 6,
         counterAttackPower: 8,
         imgUrl: "assets/images/jon-snow.jpg",
@@ -42,7 +42,7 @@ $(document).ready(function() {
     };
     var jamieObj = {
         name: "Jamie",
-        score: "120",
+        score: "100",
         attackPower: 4,
         counterAttackPower: 12,
         imgUrl: "assets/images/jamie.jpg",
@@ -50,7 +50,7 @@ $(document).ready(function() {
     };
     var whiteObj = {
         name: "White Walker",
-        score: "160",
+        score: "180",
         attackPower: 5,
         counterAttackPower: 15,
         imgUrl: "assets/images/white-walker.jpg",
@@ -144,8 +144,18 @@ $(document).ready(function() {
             playerObj.score -= opponentObj.counterAttackPower;
             $("#attackMsg1").text(playerObj.name + " attacked " + opponentObj.name + " for " + playerObj.attackPower + " damage");
             $("#attackMsg2").text(opponentObj.name + " attacked back for " + opponentObj.counterAttackPower + " damage");
-            $(playerContainerClass).find(scoreClass).text(playerObj.score);
-            $(opponentContainerClass).find(scoreClass).text(opponentObj.score);
+
+            if (playerObj.score < 0) {
+                $(playerContainerClass).find(scoreClass).text("DEAD!!!");
+            } else {
+                $(playerContainerClass).find(scoreClass).text(playerObj.score);
+            }
+
+            if (opponentObj.score < 0) {
+                $(opponentContainerClass).find(scoreClass).text("DEAD!!!");
+            } else {
+                $(opponentContainerClass).find(scoreClass).text(opponentObj.score);
+            }
             playerObj.attackPower += characterObjArray[playerObj.index].attackPower;
 
         }
@@ -169,7 +179,7 @@ $(document).ready(function() {
                 $(opponentContainerClass).css("background : red;");
                 //loadContainer(opponentContainerClass, placeHolerObj);
             } else {
-                $(msgID).text("You are dead, Game over!!! Press replay button to play another...");
+                $(msgID).text(opponentObj.name + " killed you, Game over!!! Press replay button to play another game...");
                 $(".reset-container").show();
                 $("#attackMsg1").text("");
                 $("#attackMsg2").text("");
