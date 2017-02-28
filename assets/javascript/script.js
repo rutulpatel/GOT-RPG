@@ -86,13 +86,11 @@ $(document).ready(function() {
         loadContainer(jamieContainerID, jamieObj);
         loadContainer(whiteContainerID, whiteObj);
         $(".reset-container").hide();
+        $("#msgId").text("Select your player!");
         $("#attackMsg1").text("");
         $("#attackMsg2").text("");
     }
 
-    function rand(player, opponent) {
-
-    }
 
     /** when reset button is pressed 
      * clear placeholder containers
