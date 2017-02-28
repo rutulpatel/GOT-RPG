@@ -79,6 +79,7 @@ $(document).ready(function() {
     function reset() {
         playerObj = {};
         opponentObj = {};
+        opponentObjIndexArray = [];
         loadContainer(playerContainerClass, placeHolerObj);
         loadContainer(opponentContainerClass, placeHolerObj);
         loadContainer(jonContainerID, jonObj);
@@ -86,7 +87,7 @@ $(document).ready(function() {
         loadContainer(jamieContainerID, jamieObj);
         loadContainer(whiteContainerID, whiteObj);
         $(".reset-container").hide();
-        $("#msgId").text("Select your player!");
+        $(msgId).text("Select your player!");
         $("#attackMsg1").text("");
         $("#attackMsg2").text("");
     }
@@ -114,7 +115,9 @@ $(document).ready(function() {
             loadContainer(playerContainerClass, playerObj);
             for (var i = 1; i < characterObjArray.length; i++) {
                 if (i !== parseInt(selectionIndex)) {
-                    opponentObjIndexArray.push(characterObjArray[i].index);
+                    if (opponentObjIndexArray.indexOf(selectionIndex) === -1) {
+                        opponentObjIndexArray.push(characterObjArray[i].index);
+                    }
                 }
             }
             $(msgID).text("Select your opponent");
